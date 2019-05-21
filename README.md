@@ -1,4 +1,3 @@
-
 # DB設計
 
 ## membersテーブル
@@ -22,17 +21,17 @@
 - has_many :groups, through: :members
 - has_many :members
 
-## groupテーブル
+## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|group_name|string|null: false, unique: true|
-|user_id|integer|null: false, foreign_key: true|
+|name|string|null: false, unique: true|
 
 ### Association
 - has_many :users, through: :members
 - has_many :members
+- has_many :messages
 
-## messageテーブル
+## messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |body|text|
@@ -42,3 +41,4 @@
 
 ### Association
 - belongs_to :user
+- belongs_to :group
